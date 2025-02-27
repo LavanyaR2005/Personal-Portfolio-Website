@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('images.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 650px;
+            animation: slideUp 1s ease-in-out;
+            overflow-y: auto;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #1f8a70; 
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #e74c3c; 
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease-in-out;
+            background: #f9f9f9;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #ff7eb3;
+            box-shadow: 0 0 12px rgba(255, 126, 179, 0.5);
+            outline: none;
+            background: #fff;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin: 0 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(to right, #4ca1af, #2c3e50);
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 161, 175, 0.5);
+        }
+
+        button[type="reset"] {
+            background: #ff4d4d;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.5);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .table-container {
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #e74c3c; /* Bold header color */
+            color: white;
+            text-transform: uppercase;
+        }
+
+        td {
+            background: rgba(249, 249, 249, 0.9);
+            font-weight: 500;
+            color: #2c3e50; /* Dark color for readability */
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(76, 161, 175, 0.1);
+        }
+
+        .container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff7eb3, #4ca1af);
+            border-radius: 10px;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(#4ca1af, #ff7eb3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hospital-info {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hospital-info h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .hospital-info p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .hospital-info .status {
+            font-weight: bold;
+            color: #27ae60; 
+        }
+
+        .hospital-info .facilities {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .hospital-info .facilities li {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Patient Registration</h2>
+        <form action="#" method="post">
+            <div class="input-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" required placeholder="Enter full name">
+            </div>
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter phone number">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter email (optional)">
+            </div>
+            <div class="input-group">
+                <label for="doctor">Available Doctors</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="">Select</option>
+                    <option value="Dr. Smith - Cardiologist">Dr. Abinaya </option>
+                    <option value="Dr. Johnson - Neurologist">Dr. Lavanya  </option>
+                    <option value="Dr. Lee - Orthopedic">Dr. Hemanth - </option>
+                    <option value="Dr. Brown - Pediatrician">Dr. Akshaya - </option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="submit">Register</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+
+        <div class="table-container">
+            <h3>Doctor Availability</h3>
+            <table>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Specialization</th>
+                    <th>Timing</th>
+                </tr>
+                <tr>
+                    <td>Dr. Abinaya</td>
+                    <td>Cardiologist</td>
+                    <td>9:00 AM - 2:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Dr. Lavanya</td>
+                    <td>Neurologist</td>
+                    <td>10:00 AM - 4:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Dr. Hemanth</td>
+                    <td>Cardiologist</td>
+                    <td>11:00 AM - 1:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Dr. Akshaya</td>
+                    <td>Pediatrician</td>
+                    <td>4:00 pM - 9:00 PM</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="hospital-info">
+            <h3>Hospital Information</h3>
+            <p><strong>Hospital Status:</strong> <span class="status">Open</span></p>
+            <p><strong>Working Hours:</strong> 24/7</p>
+            <h4>Available Facilities:</h4>
+            <ul class="facilities">
+                <li>Emergency Services</li>
+                <li>24/7 Pharmacy</li>
+                <li>Advanced Diagnostics</li>
+                <li>In-Patient Services</li>
+                <li>Surgical Rooms</li>
+                <li>Specialized Consultation</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

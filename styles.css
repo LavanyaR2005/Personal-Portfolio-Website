@@ -1,0 +1,30 @@
+<div class="table-container">
+    <h3>Doctor Availability</h3>
+    <table>
+        <tr>
+            <th>Doctor</th>
+            <th>Specialization</th>
+            <th>Timing</th>
+        </tr>
+        <tr>
+            <td>Dr. Smith</td>
+            <td>Cardiologist</td>
+            <td>9:00 AM - 2:00 PM</td>
+        </tr>
+        <tr>
+            <td>Dr. Johnson</td>
+            <td>Neurologist</td>
+            <td>10:00 AM - 4:00 PM</td>
+        </tr>
+        <tr>
+            <td>Dr. Lee</td>
+            <td>Orthopedic</td>
+            <td>8:00 AM - 1:00 PM</td>
+        </tr>
+        <tr>
+            <td>Dr. Brown</td>
+            <td>Pediatrician</td>
+            <td>11:00 AM - 6:00 PM</td>
+        </tr>
+    </table>
+</div>
